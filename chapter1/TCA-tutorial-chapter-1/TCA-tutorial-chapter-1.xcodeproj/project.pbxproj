@@ -33,9 +33,22 @@
 		91963D6D2F0D2B6300513AF2 /* TCA-tutorial-chapter-1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TCA-tutorial-chapter-1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		91963D872F0D526D00513AF2 /* Exceptions for "TCA-tutorial-chapter-1" folder in "TCA-tutorial-chapter-1" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 91963D552F0D2B6100513AF2 /* TCA-tutorial-chapter-1 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		91963D582F0D2B6100513AF2 /* TCA-tutorial-chapter-1 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				91963D872F0D526D00513AF2 /* Exceptions for "TCA-tutorial-chapter-1" folder in "TCA-tutorial-chapter-1" target */,
+			);
 			path = "TCA-tutorial-chapter-1";
 			sourceTree = "<group>";
 		};
@@ -391,6 +404,7 @@
 				DEVELOPMENT_TEAM = LX9Y64QMQB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TCA-tutorial-chapter-1/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -423,6 +437,7 @@
 				DEVELOPMENT_TEAM = LX9Y64QMQB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TCA-tutorial-chapter-1/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
