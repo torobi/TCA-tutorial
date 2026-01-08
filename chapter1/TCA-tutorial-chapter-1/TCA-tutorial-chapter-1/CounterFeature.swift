@@ -11,7 +11,7 @@ import SwiftUI
 @Reducer
 struct CounterFeature {
     @ObservableState
-    struct State {
+    struct State: Equatable {
         var count = 0
         var fact: String?
         var isLoading = false
@@ -31,6 +31,9 @@ struct CounterFeature {
         case timer
     }
 
+    @Dependency(\.continuousClock) var clock
+    @Dependency(\.numberFact) var numberFact
+
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
@@ -41,9 +44,7 @@ struct CounterFeature {
                 state.fact = nil
                 state.isLoading = true
                 return .run { [count = state.count] send in
-                    let (data, _) = try await URLSession.shared.data(from: URL(string: "http://numbersapi.com/\(count)")!)
-                    let fact = String(decoding: data, as: UTF8.self)
-                    await send(.factResponse(fact))
+                    try await send(.factResponse(self.numberFact.fetch(count)))
                 }
             case let .factResponse(fact):
                 state.fact = fact
@@ -59,9 +60,8 @@ struct CounterFeature {
             case .toggleTimerButtonTapped:
                 state.isTimerRunning.toggle()
                 if state.isTimerRunning {
-                    return .run { send in
-                        while true {
-                            try await Task.sleep(for: .seconds(1))
+                    return .run { [clock = self.clock] send in
+                        for await _ in clock.timer(interval: .seconds(1)) {
                             await send(.timerTick)
                         }
                     }
